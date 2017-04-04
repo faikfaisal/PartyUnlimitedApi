@@ -4,6 +4,7 @@ from guestlist import views
 
 urlpatterns = [
     url(r'^$', views.api_root),
+    url(r'^register_user/$', views.register_user),
     url(r'^venues/$', views.VenueList.as_view(), name='venue-list'),
     url(r'^venues/(?P<pk>[0-9]+)/$', views.VenueDetail.as_view(), name='venue-detail'),
     url(r'^users/$', views.UserList.as_view(), name='user-list'),

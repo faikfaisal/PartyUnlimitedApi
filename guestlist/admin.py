@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from guestlist.models import Venue, Party, GuestList
+
+
+admin.site.register(Venue)
+admin.site.register(Party)
+admin.site.register(GuestList)

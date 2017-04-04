@@ -24,7 +24,7 @@ SECRET_KEY = '#31lf6wzc2_%*vgvn8&8f3&0zpoq99%v(xae=ynvn&!h9b-4_y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 # Application definition
 
@@ -38,6 +38,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'guestlist.apps.GuestlistConfig',
 ]
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework.authentication.TokenAuthentication',
+#     )
+# }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,8 +77,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PartyUnlimitedAPI.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'HOST': 'db',
+#         'PORT': 5432,
+#     }
+# }
 
 DATABASES = {
     'default': {
