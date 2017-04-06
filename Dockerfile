@@ -1,7 +1,7 @@
-FROM python:2.7
+FROM python:3-onbuild
 ENV PYTHONUNBUFFERED 1
-RUN mkdir /code
-WORKDIR /code
-ADD requirements.txt /code/
+RUN mkdir /api_code
+WORKDIR /api_code
+ADD requirements.txt /api_code/
 RUN pip install -r requirements.txt
-ADD . /code/
+ADD . /api_code/

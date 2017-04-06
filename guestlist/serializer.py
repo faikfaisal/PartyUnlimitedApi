@@ -25,7 +25,7 @@ class PartySerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Party
-        fields = ('url', 'id', 'owner', 'name', 'venue', 'description', 'party_date', 'created')
+        fields = ('url', 'id', 'owner', 'name', 'venue', 'description', 'party_date', 'created', 'is_active')
         read_only_fields = ('created',)
 
     def validate(self, data):

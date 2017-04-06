@@ -1,11 +1,13 @@
 from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework.decorators import api_view
+from rest_framework.filters import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework.status import HTTP_201_CREATED, HTTP_400_BAD_REQUEST
 
+from guestlist.filters import PartyFilter
 from guestlist.models import Party, Venue, GuestList
 from guestlist.permissions import IsStaff, IsStaffOrReadOnly
 from guestlist.serializer import PartySerializer, UserSerializer, VenueSerializer, GuestListSerializer
@@ -80,6 +82,8 @@ class VenueDetail(generics.RetrieveUpdateDestroyAPIView):
 class PartyList(generics.ListCreateAPIView):
     queryset = Party.objects.all()
     serializer_class = PartySerializer
+    filter_backends = (DjangoFilterBackend,)
+    filter_class = PartyFilter
     permission_classes = (IsStaffOrReadOnly,)
 
     def perform_create(self, serializer):
